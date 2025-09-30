@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onCartClick, onProfileClick, onO
             <div className="flex items-center space-x-3">
               <Pill className="w-8 h-8 text-blue-600" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">HealthPharm</h1>
+                <h1 className="text-2xl font-bold text-gray-900">SVM Pharma</h1>
                 <p className="text-xs text-gray-500">Your Health Partner</p>
               </div>
             </div>

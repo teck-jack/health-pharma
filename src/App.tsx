@@ -31,9 +31,9 @@ function App() {
           <footer className="bg-gray-900 text-white py-8 mt-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <h3 className="text-xl font-bold mb-2">HealthPharm</h3>
+                <h3 className="text-xl font-bold mb-2">SVM Pharma</h3>
                 <p className="text-gray-400 text-sm">Your trusted online pharmacy for all health needs</p>
-                <p className="text-gray-500 text-xs mt-4">&copy; 2025 HealthPharm. All rights reserved.</p>
+                <p className="text-gray-500 text-xs mt-4">&copy; 2025 SVM Pharma. All rights reserved.</p>
               </div>
             </div>
           </footer>
