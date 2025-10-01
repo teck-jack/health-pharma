@@ -7,36 +7,35 @@ import { Cart } from './components/Cart';
 import { Checkout } from './components/Checkout';
 import { Profile } from './components/Profile';
 import { Orders } from './components/Orders';
+import { Footer } from './components/Footer';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [showOrders, setShowOrders] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
 
   return (
     <AuthProvider>
       <CartProvider>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 flex flex-col">
           <Header
             onCartClick={() => setShowCart(true)}
             onProfileClick={() => setShowProfile(true)}
             onOrdersClick={() => setShowOrders(true)}
+            selectedCategory={selectedCategory}
+            onCategorySelect={setSelectedCategory}
           />
 
-          <main>
-            <ProductList />
+          <main className="flex-1">
+            <ProductList
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
           </main>
 
-          <footer className="bg-gray-900 text-white py-8 mt-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-2">SVM Pharma</h3>
-                <p className="text-gray-400 text-sm">Your trusted online pharmacy for all health needs</p>
-                <p className="text-gray-500 text-xs mt-4">&copy; 2025 SVM Pharma. All rights reserved.</p>
-              </div>
-            </div>
-          </footer>
+          <Footer />
 
           <Cart
             isOpen={showCart}

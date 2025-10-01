@@ -2,18 +2,25 @@ import React, { useState } from 'react';
 import { Search, Filter } from 'lucide-react';
 import { products, categories } from '../data/products';
 import { ProductCard } from './ProductCard';
+import { ProductDetails } from './ProductDetails';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { AuthModal } from './AuthModal';
+import { Product } from '../types';
 
-export const ProductList: React.FC = () => {
+interface ProductListProps {
+  selectedCategory?: string;
+  onCategoryChange?: (category: string) => void;
+}
+
+export const ProductList: React.FC<ProductListProps> = ({ selectedCategory = 'All Categories', onCategoryChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const { addToCart } = useCart();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const { addToCart, cartItems, updateQuantity } = useCart();
   const { user } = useAuth();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     if (!user) {
       setShowAuthModal(true);
       return;
@@ -50,7 +57,7 @@ export const ProductList: React.FC = () => {
               <Filter className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={(e) => onCategoryChange?.(e.target.value)}
                 className="w-full md:w-64 pl-12 pr-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-300 focus:outline-none appearance-none cursor-pointer"
               >
                 {categories.map(category => (
@@ -63,9 +70,12 @@ export const ProductList: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
+        <div className="mb-6 flex items-center justify-between">
           <p className="text-gray-600">
             Showing <span className="font-semibold">{filteredProducts.length}</span> products
+            {selectedCategory !== 'All Categories' && (
+              <span className="ml-2">in <span className="font-semibold">{selectedCategory}</span></span>
+            )}
           </p>
         </div>
 
@@ -75,18 +85,33 @@ export const ProductList: React.FC = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
+            {filteredProducts.map(product => {
+              const cartItem = cartItems.find(item => item.product.id === product.id);
+              return (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  cartItem={cartItem}
+                  onAddToCart={handleAddToCart}
+                  onUpdateQuantity={updateQuantity}
+                  onViewDetails={setSelectedProduct}
+                />
+              );
+            })}
           </div>
         )}
       </div>
 
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+
+      <ProductDetails
+        product={selectedProduct}
+        cartItem={selectedProduct ? cartItems.find(item => item.product.id === selectedProduct.id) : undefined}
+        isOpen={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onAddToCart={handleAddToCart}
+        onUpdateQuantity={updateQuantity}
+      />
     </>
   );
 };
