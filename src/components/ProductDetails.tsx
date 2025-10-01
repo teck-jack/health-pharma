@@ -104,8 +104,8 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
               </div>
 
               <div className="flex items-baseline space-x-3 mb-6">
-                <span className="text-4xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
-                <span className="text-lg text-gray-500 line-through">${(product.price * 1.2).toFixed(2)}</span>
+                <span className="text-4xl font-bold text-gray-900">{product.price.toFixed(2)}</span>
+                <span className="text-lg text-gray-500 line-through">{(product.price * 1.2).toFixed(2)}</span>
                 <span className="text-sm font-medium text-green-600 bg-green-50 px-2 py-1 rounded">
                   Save 17%
                 </span>
@@ -127,7 +127,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
                 </div>
                 <div className="flex items-center space-x-2 text-sm">
                   <CheckCircle className="w-4 h-4 text-green-600" />
-                  <span className="text-gray-700">Free shipping on orders over $50</span>
+                  <span className="text-gray-700">Free shipping on orders over 500 Rs</span>
                 </div>
               </div>
             </div>
@@ -212,7 +212,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({
                     className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3 font-medium text-lg shadow-lg"
                   >
                     <ShoppingCart className="w-6 h-6" />
-                    <span>Add to Cart - ${(product.price * selectedQuantity).toFixed(2)}</span>
+                    <span>Add to Cart - {(product.price * selectedQuantity).toFixed(2)}</span>
                   </button>
                 </div>
               )}

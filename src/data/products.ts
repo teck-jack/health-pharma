@@ -197,7 +197,7 @@ export const products: Product[] = [
     description: 'Natural sleep aid to regulate sleep-wake cycles and improve rest quality.',
     category: 'Vitamins & Supplements',
     price: 14.99,
-    imageUrl: 'https://images.pexels.com/photos/4047176/pexels-photo-4047176.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://images.pexels.com/photos/4047185/pexels-photo-4047185.jpeg?auto=compress&cs=tinysrgb&w=400',
     stock: 190,
     requiresPrescription: false,
   },

@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>1-800-HEALTH-RX</span>
+                  <span>+91 8764356098</span>
                 </div>
                 <div className="hidden md:flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex items-center space-x-3">
                 <Pill className="w-10 h-10 text-blue-600" />
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">HealthPharm</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">SVM Pharma</h1>
                   <p className="text-xs text-gray-500">Trusted Since 1995</p>
                 </div>
               </div>

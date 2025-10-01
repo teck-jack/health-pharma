@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-2 mb-4">
               <Pill className="w-8 h-8 text-blue-500" />
               <div>
-                <h3 className="text-xl font-bold">HealthPharm</h3>
+                <h3 className="text-xl font-bold">SVM Pharma</h3>
                 <p className="text-xs text-gray-400">Trusted Since 1995</p>
               </div>
             </div>
@@ -105,15 +105,15 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                <span>123 Healthcare Plaza, Medical District, New York, NY 10001</span>
+                <span>Rajeeb Healthcare Plaza, Medical District, New delhi, 110008</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-500" />
-                <span>1-800-HEALTH-RX</span>
+                <span>+91 8764356098</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-500" />
-                <span>support@healthpharm.com</span>
+                <span>support@svmpharma.com</span>
               </li>
             </ul>
 
@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm">
-                &copy; 2025 HealthPharm. All rights reserved.
+                &copy; 2025 SVM Pharma. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Licensed Pharmacy: License #PH-123456 | Registered with FDA

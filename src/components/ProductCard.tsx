@@ -65,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         <div className="flex items-center justify-between mb-3">
           <div>
-            <span className="text-2xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-gray-900">{product.price.toFixed(2)}</span>
             <p className="text-xs text-gray-500">{product.stock} available</p>
           </div>
         </div>
